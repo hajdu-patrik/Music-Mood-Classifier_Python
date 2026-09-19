@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Recommendations</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
-</head>
-<body>
-    <button id="theme-toggle" class="theme-toggle">💡</button>
-
+{% extends 'base.html' %}
+{% block title %}Music Recommendations{% endblock %}
+{% block description %}Determined mood and recommendations based on similar mood and text for the searched song.{% endblock %}
+{% block robots %}noindex, follow{% endblock %}
+{% block canonical %}{% endblock %}
+{% block content %}
     <div class="container">
         <h1>Search Results</h1>
 
@@ -46,9 +40,6 @@
             <p>You did not enter an artist or song title.</p>
         {% endif %}
 
-        <a href="/" class="back-link">&laquo; Back to new search</a>
+        {{ ui.link_button('/', '« Back to new search') }}
     </div>
-
-    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
-</body>
-</html>
+{% endblock %}

@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Recommendation</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
-</head>
-<body>
-    
-    <button id="theme-toggle" class="theme-toggle">💡</button>
-
+{% extends 'base.html' %}
+{% block content %}
     <div class="container">
         <h1>🎶 Music Classifier</h1>
         <form action="/search" method="GET">
@@ -22,10 +11,7 @@
                 <label for="song" class="form-label">Song title:</label>
                 <input type="text" id="song" name="song" class="form-control" required autocomplete="off">
             </div>
-            <input type="submit" value="Search for recommendations" class="btn">
+            {{ ui.submit_button('Search for recommendations') }}
         </form>
     </div>
-
-    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
-</body>
-</html>
+{% endblock %}

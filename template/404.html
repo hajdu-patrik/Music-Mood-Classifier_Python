@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
-</head>
-<body>
-    <button id="theme-toggle" class="theme-toggle">💡</button>
-
+{% extends 'base.html' %}
+{% block title %}404 - Page Not Found{% endblock %}
+{% block description %}Page Not Found. Back to the homepage to search by artist and song title.{% endblock %}
+{% block robots %}noindex, follow{% endblock %}
+{% block canonical %}{% endblock %}
+{% block content %}
     <div class="container text-center">
         
         <h1 class="error-title">404</h1>
@@ -18,9 +12,6 @@
         
         <p>Redirecting to homepage in <span id="countdown">5</span> seconds...</p>
         
-        <a href="/" class="back-link">&laquo; Back to homepage</a>
+        {{ ui.link_button('/', '« Back to homepage') }}
     </div>
-
-    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
-</body>
-</html>
+{% endblock %}

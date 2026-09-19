@@ -1,6 +1,6 @@
 import sys
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Response
 import traceback
 
 # --- Path Setup ---
@@ -9,6 +9,17 @@ sys.path.append(current_dir)
 
 # --- Flask App Setup ---
 app = Flask(__name__, template_folder='../template', static_folder='../static')
+
+# --- Site Identity ---
+# Absolute base URL of the deployment, used for canonical links, social tags, robots and the sitemap.
+SITE_URL = os.environ.get('SITE_URL', 'https://music-mood-classifier-nine.vercel.app').rstrip('/')
+
+
+@app.context_processor
+def inject_site_urls():
+    """Expose the site and the current canonical URL to every template."""
+    return {'site_url': SITE_URL, 'canonical_url': SITE_URL + request.path}
+
 
 # --- Initialization & Safe Loading ---
 bl = None
@@ -87,6 +98,21 @@ def search():
     except Exception:
         # Catch unexpected runtime errors during search
         return f"<h1>Runtime Error during Search</h1><pre>{traceback.format_exc()}</pre>"
+
+# --- Crawler Routes ---
+@app.route('/robots.txt')
+def robots_txt():
+    # Everything is public; point crawlers at the sitemap.
+    body = 'User-agent: *\nAllow: /\nDisallow: /debug\nDisallow: /search\nSitemap: ' + SITE_URL + '/sitemap.xml\n'
+    return Response(body, mimetype='text/plain')
+
+
+@app.route('/sitemap.xml')
+def sitemap_xml():
+    urls = ''.join('  <url><loc>' + SITE_URL + path + '</loc></url>\n' for path in ['/'])
+    body = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + '</urlset>\n'
+    return Response(body, mimetype='application/xml')
+
 
 # --- Error Handlers ---
 @app.errorhandler(404)

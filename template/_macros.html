@@ -1,0 +1,16 @@
+{#
+  Reusable controls. The CSS classes are the existing rules in style.css:
+  .theme-toggle, .btn (Reusable Components section), .back-link
+#}
+
+{% macro theme_toggle() -%}
+<button id="theme-toggle" class="theme-toggle" type="button">💡</button>
+{%- endmacro %}
+
+{% macro submit_button(value, modifier='') -%}
+<input type="submit" value="{{ value }}" class="btn{% if modifier %} {{ modifier }}{% endif %}">
+{%- endmacro %}
+
+{% macro link_button(href, text, css_class='back-link') -%}
+<a href="{{ href }}" class="{{ css_class }}">{{ text }}</a>
+{%- endmacro %}

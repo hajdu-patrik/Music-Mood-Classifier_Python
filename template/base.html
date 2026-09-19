@@ -1,0 +1,32 @@
+{% import '_macros.html' as ui with context %}<!DOCTYPE html>
+<html lang="{% block html_lang %}en{% endblock %}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Music Recommendation{% endblock %}</title>
+    <meta name="description" content="{% block description %}Search by artist and song title to get the determined mood and recommendations based on similar mood and text.{% endblock %}">
+    <meta name="robots" content="{% block robots %}index, follow{% endblock %}">
+    {% block canonical %}<link rel="canonical" href="{{ canonical_url }}">{% endblock %}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Music Classifier">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="{{ self.title() }}">
+    <meta property="og:description" content="{{ self.description() }}">
+    <meta property="og:url" content="{{ canonical_url }}">
+    <meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='icon-256.png') }}">
+    <meta property="og:image:width" content="256">
+    <meta property="og:image:height" content="256">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ self.title() }}">
+    <meta name="twitter:description" content="{{ self.description() }}">
+    <meta name="twitter:image" content="{{ site_url }}{{ url_for('static', filename='icon-256.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='icon-256.png') }}">
+</head>
+<body>
+    {{ ui.theme_toggle() }}
+{% block content %}{% endblock %}
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
