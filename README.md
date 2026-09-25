@@ -52,29 +52,36 @@ The models were originally trained using:
 
 ## 📂 Project Structure
 ```
-Music-Mood-Classifier/
+Music-Mood-Classifier_Python/
 ├── app/
-│ ├── business_logic.py
-│ ├── convert_model.py
-│ └── app.py
-│
-├── source/
-│ ├── spotify_millsongdata.csv
-│ └── emotions.csv
-│
-├── requirements.txt
+│   ├── app.py
+│   ├── business_logic.py
+│   └── convert_model.py
 │
 ├── model/
-│ └── (Generated artifacts)
+│   ├── analyzed_lyrics.pkl.gz
+│   ├── lyrics_metadata.json.gz
+│   └── lyrics_tfidf_matrix.npz
+│
+├── sources/                  (raw Kaggle datasets, git-ignored)
+│   ├── emotions.csv
+│   └── spotify_millsongdata.csv
 │
 ├── static/
-│ ├── style.css
-│ └── scripts.js
-│ └── favicon.ico
+│   ├── favicon.ico
+│   ├── icon-256.png
+│   ├── scripts.js
+│   └── style.css
 │
-└── template/
-├── index.html
-└── results.html
+├── template/
+│   ├── 404.html
+│   ├── _macros.html
+│   ├── base.html
+│   ├── index.html
+│   └── results.html
+│
+├── requirements.txt
+└── vercel.json
 ```
 
 ---
@@ -129,6 +136,8 @@ The server will be available here:
 ---
 
 ## 🎮 Console Interaction Example
+
+*(Output of the original console version; the interactive console loop has since been removed and the current app is used through the web interface.)*
 
 ```bash
 --- Music Mood Classifier System Started ---
