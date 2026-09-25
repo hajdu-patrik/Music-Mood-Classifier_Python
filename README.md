@@ -1,3 +1,5 @@
+# Music Mood Classifier
+
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat&logo=python&logoColor=white)
 ![Flask](https://img.shields.io/badge/Framework-Flask-000000?style=flat&logo=flask&logoColor=white)
 ![NumPy](https://img.shields.io/badge/Math-NumPy-013243?style=flat&logo=numpy&logoColor=white)
@@ -6,8 +8,7 @@
 ![CSS3](https://img.shields.io/badge/Style-CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/Script-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![Vercel](https://img.shields.io/badge/Deployment-Vercel-000000?style=flat&logo=vercel&logoColor=white)
-
-# Music Mood Classifier
+![License](https://img.shields.io/badge/License-All_Rights_Reserved-red?style=flat)
 
 A Python-based NLP system and web application that analyzes the emotional profile of song lyrics and recommends songs with a similar mood. The project was developed as part of the **BME-VIK "Natural Language and Semantic Technologies"** course.
 
@@ -22,7 +23,7 @@ A Python-based NLP system and web application that analyzes the emotional profil
 
 ---
 
-## 📚 Features
+## ✨ Features
 
 - 🎭 **Emotion Classification** – 6 categories: *sadness, joy, love, anger, fear, surprise*
 - 🎶 **Similarity-Based Recommendation** – Uses native Matrix Multiplication (Dot Product) on TF-IDF vectors.
@@ -32,7 +33,7 @@ A Python-based NLP system and web application that analyzes the emotional profil
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Technology Stack
 
 ### Production (Runtime)
 These libraries are used to run the web application:
@@ -90,8 +91,8 @@ Music-Mood-Classifier/
 ### 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/hajdu-patrik/Music-Mood-Classifier_PYthon]
-cd your-repo-name
+git clone https://github.com/hajdu-patrik/Music-Mood-Classifier_Python.git
+cd Music-Mood-Classifier_Python
 ```
 
 ### 2. Create and Activate Virtual Environment
@@ -99,7 +100,7 @@ cd your-repo-name
 **Windows (Git Bash):**
 ```bash
 python -m venv .venv
-source .venv/Scripts/activate"
+source .venv/Scripts/activate
 ```
 
 **macOS/Linux:**
@@ -146,6 +147,8 @@ Recommendations:
  ...
 ```
 
+---
+
 ## 📊 Model Performance
 
 The emotion classification model (Logistic Regression on TF-IDF features) achieved a **90% weighted average F1-score** on the validation set (83,362 samples).
@@ -160,3 +163,11 @@ Any push to the `main` branch automatically triggers a new build and deployment.
 | Environment | Status |
 | :--- | :--- |
 | **Production** | [![Vercel App](https://img.shields.io/badge/Visit-Live_App-success?style=for-the-badge&logo=vercel)](https://music-mood-classifier-nine.vercel.app) |
+
+---
+
+## 📄 License
+
+Copyright (c) Hajdú Patrik Zsolt. All rights reserved.
+
+Published for demonstration and portfolio purposes only. Using any part of this code as a solution for an academic assignment is strictly prohibited. See [LICENSE.md](LICENSE.md) for the full terms.
